@@ -1,13 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>PokeAPI Chatraoui</title>
-    <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Calculator Simulator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Roboto:wght@100;300;400;500;700;900&family=Syne+Mono&display=swap" rel="stylesheet">
+    <script src="javascript.js" defer></script>
 </head>
 <body>
-    <input id="name" placeholder="Enter Pokémon">
-    <button onclick="fetchPokemon()">Search</button>
-    <div id="root"></div>
+    <div class="content">
+        <div class="title">
+            <h1>Retro Calculator Simulator</h1>
+        </div>
+        <div class="info">
+            <p>Litronix 2140</p>
+            <p>© LITRONIX, INC.</p>
+            <p>CUPERTINO, CALIFORNIA</p>
+            <p>4VDC 300 MW</p>
+            <p>Use AC adapter #102 for 110 volts</p>
+            <p>Use AC adapter #104 for 230 volts</p>
+        </div>
+        <div class="instruction">
+            <h2>INSTRUCTION</h2>
+            <ul>
+                <li>Turn on calculator, press <span>C/on</span>.</li>
+                <li>Turn off calculator, press <span>off</span>.</li>
+                <li>Clear calculator, but not memory, press <span>C/on</span> twice.</li>
+                <li>Clear entry, overflow, or error, press <span>C/on</span> once.</li>
+                <li>Change sign of display, press <span>+/–</span> once.</li>
+                <li>Add contents of display to memory, press <span>M+</span>.</li>
+                <li>Recall memory to display, press <span>RM</span> once.</li>
+                <li>Clear memory, press <span>RM</span> twice.</li>
+            </ul>
+
+            <h2>KEYBOARD SHORTCUTS</h2>
+            <div class="table">
+                <div class="table-title">
+                    <div>Button</div>
+                    <div>Shortcut</div>
+                </div>
+                <div class="entry">
+                    <div><span>C/on</span></div>
+                    <div>Spacebar</div>
+                </div>
+                <div class="entry">
+                    <div><span>off</span></div>
+                    <div>Escape</div>
+                </div>
+                <div class="entry">
+                    <div><span>0</span> – <span>9</span></div>
+                    <div>0 – 9</div>
+                </div>
+                <div class="entry">
+                    <div><span>.</span></div>
+                    <div>. (dot) or , (komma)</div>
+                </div>
+                <div class="entry">
+                    <div><span>+</span></div>
+                    <div>+</div>
+                </div>
+                <div class="entry">
+                    <div><span>–</span></div>
+                    <div>–</div>
+                </div>
+                <div class="entry">
+                    <div><span>×</span></div>
+                    <div>*</div>
+                </div>
+                <div class="entry">
+                    <div><span>÷</span></div>
+                    <div>/</div>
+                </div>
+                <div class="entry">
+                    <div><span>=</span></div>
+                    <div>Enter</div>
+                </div>
+                <div class="entry">
+                    <div><span>%</span></div>
+                    <div>%</div>
+                </div>
+                <div class="entry">
+                    <div><span>+/–</span></div>
+                    <div>Ctrl</div>
+                </div>
+                <div class="entry">
+                    <div><span>√x</span></div>
+                    <div>V</div>
+                </div>
+                <div class="entry">
+                    <div><span>x²</span></div>
+                    <div>S</div>
+                </div>
+                <div class="entry">
+                    <div><span>1/x</span></div>
+                    <div>I</div>
+                </div>
+                <div class="entry">
+                    <div><span>M+</span></div>
+                    <div>M</div>
+                </div>
+                <div class="entry">
+                    <div><span>RM</span></div>
+                    <div>R</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about">
+            <h2>ABOUT</h2>
+            <p>The "Retro Calculator Simulator" was created with inspiration from
+                "Litronix 2140" pocket calculator. The actual functionality and
+                outlook may differ from original, because I didn't posses
+                the physical calculator.            
+            </p>
+            <p>
+                Vectorial image was created using the
+                <a href="http://www.calculatormuseum.nl/calculators/litronix2140.html" target="_blank">photo</a>
+                by Hans Bloemen from <a href="http://www.calculatormuseum.nl/" target="_blank">calculatormuseum.nl</a>
+            </p>
+            <p>
+                As page background an image by GarryKillian from <a href="https://www.freepik.com/free-vector/classical-luxury-old-fashioned-flower-pattern-element_8982505.htm">freepick.com</a> was used.
+            </p>
+            <p>
+                The calculator is drawn using open source software
+                "Inkscape", the app is created using HTML, CSS and JavaScript.
+            </p>
+            <p>
+                You can take a look at the code at projects <a href="https://github.com/a-skersys/calculator" target="_blank">GitHub</a>.
+            </p>
+            <p>
+                If you want to see more projects, made by me, please visit my protofolio:
+                <a href="https://www.skersys.eu/">skersys.eu</a>.
+            </p>
+        </div>
+        <div class="calculator">
+            <div><img src="images/calculator/c01.svg"></div>
+
+            <div>
+                <button id="btnDivide">/</button>
+                <div class="button imgDivide">
+                    <img src="images/buttons/b55_divide.svg">
+                </div>
+            </div>
+
+            <div><img src="images/calculator/c02.svg"></div>
+            
+            <div>
+                <button id="btnRM">RM</button>
+                <div class="button">
+                    <img src="images/buttons/b54_rm.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btnX">X</button>
+                <div class="button">
+                    <img src="images/buttons/b45_multiple.svg">
+                </div>
+            </div>
+            
+            <div><img src="images/calculator/c03.svg"></div>
+            
+            <div>
+                <button id="btnMPlus">M+</button>
+                <div class="button">
+                    <img src="images/buttons/b53_mPlus.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btn9">9</button>
+                <div class="button">
+                    <img src="images/buttons/b44_9.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btnMinus">-</button>
+                <div class="button">
+                    <img src="images/buttons/b35_minus.svg">
+                </div>
+            </div>
+            
+            <div><img src="images/calculator/c04.svg"></div>
+            
+            <div>
+                <button id="btnOff">Off</button>
+                <div class="button">
+                    <img src="images/buttons/b52_off.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btn8">8</button>
+                <div class="button">
+                    <img src="images/buttons/b43_8.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btn6">6</button>
+                <div class="button">
+                    <img src="images/buttons/b34_6.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btnPlus">+</button>
+                <div class="button">
+                    <img src="images/buttons/b25_plus.svg">
+                </div>
+            </div>
+            
+            <div><img src="images/calculator/c05.svg"></div>
+            
+            <div>
+                <button id="btnOn">On</button>
+                <div class="button">
+                    <img src="images/buttons/b51_on.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btn7">7</button>
+                <div class="button">
+                    <img src="images/buttons/b42_7.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btn5">5</button>
+                <div class="button">
+                    <img src="images/buttons/b33_5.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btn3">3</button>
+                <div class="button">
+                    <img src="images/buttons/b24_3.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btnEqual">=</button>
+                <div class="button">
+                    <img src="images/buttons/b15_equal.svg">
+                </div>
+            </div>
+            
+                    <div><img src="images/calculator/c06.svg"></div>
+            
+            <div>
+                <button id="btnFactorial">1/x</button>
+                <div class="button">
+                    <img src="images/buttons/b41_factorial.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btn4">4</button>
+                <div class="button">
+                    <img src="images/buttons/b32_4.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btn2">2</button>
+                <div class="button">
+                    <img src="images/buttons/b23_2.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btnPercent">%</button>
+                <div class="button">
+                    <img src="images/buttons/b14_percent.svg">
+                </div>
+            </div>
+            
+            <div><img src="images/calculator/c07.svg"></div>
+            
+            <div>
+                <button id="btnSquare">x2</button>
+                <div class="button">
+                    <img src="images/buttons/b31_square.svg">
+                </div>
+            </div>
+
+            <div>
+                <button id="btn1">1</button>
+                <div class="button">
+                    <img src="images/buttons/b22_1.svg">
+                </div>
+            </div>
+            
+            <div>
+                <button id="btn0">0</button>
+                <div class="button">
+                    <img src="images/buttons/b13_0.svg">
+                </div>
+            </div>
+            
+            <div><img src="images/calculator/c08.svg"></div>
+
+            <div>
+                <button id="btnRoot">V</button>
+                <div class="button">
+                    <img src="images/buttons/b21_root.svg">
+                </div>  
+            </div>
+
+            <div>
+                <button id="btnDot">.</button>
+                <div class="button">
+                    <img src="images/buttons/b12_dot.svg">
+                </div>
+            </div>
+
+            <div><img src="images/calculator/c09.svg"></div>
+
+            <div>
+                <button id="btnPlusMinus">+/-</button>
+                <div class="button imgPlusMinus">
+                    <img src="images/buttons/b11_plusMinus.svg">
+                </div>
+            </div>
+
+            <div><img src="images/calculator/c10.svg"></div>
+
+            <div class="screen">
+                <p class="display" id="display"></p>
+                <p class="dot" id="dot"></p>
+                <p class="memory" id="memory">M</p>
+                <p class="sign" id="sign"></p>
+            </div>
+            
+            
+        </div>
+        
+
+    </div>
+    <footer>
+        <p>© 2022 Audrius Skersys. All rights reserved.</p>
+        <p>Source code of website and all projects is licensed under the MIT license.</p>
+    </footer>
 </body>
 </html>
